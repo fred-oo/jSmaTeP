@@ -1,0 +1,48 @@
+/*
+ * Created: Thu Aug 20 21:56:14 CEST 2009 by Manfred Kardass
+ */
+package  de.kardass.jsmatep.out;
+public class ExporterTestValueObject {
+private String a;
+public void setA(String a){this.a=a;}
+public String getA(){return this.a;}
+private java.util.Date b;
+public void setB(java.util.Date b){this.b=b;}
+public java.util.Date getB(){return this.b;}
+private Integer c;
+public void setC(Integer c){this.c=c;}
+public Integer getC(){return this.c;}
+private float d;
+public void setD(float d){this.d=d;}
+public float getD(){return this.d;}
+private java.math.BigDecimal e;
+public void setE(java.math.BigDecimal e){this.e=e;}
+public java.math.BigDecimal getE(){return this.e;}
+private String f;
+public void setF(String f){this.f=f;}
+public String getF(){return this.f;}
+private java.math.BigDecimal g;
+public void setG(java.math.BigDecimal g){this.g=g;}
+public java.math.BigDecimal getG(){return this.g;}
+private java.math.BigDecimal h;
+public void setH(java.math.BigDecimal h){this.h=h;}
+public java.math.BigDecimal getH(){return this.h;}
+private java.math.BigDecimal i;
+public void setI(java.math.BigDecimal i){this.i=i;}
+public java.math.BigDecimal getI(){return this.i;}
+private java.math.BigDecimal j;
+public void setJ(java.math.BigDecimal j){this.j=j;}
+public java.math.BigDecimal getJ(){return this.j;}
+public String toString() {
+return "[" + "a="+getA()
++ ", " + "b="+getB()
++ ", " + "c="+getC()
++ ", " + "d="+getD()
++ ", " + "e="+getE()
++ ", " + "f="+getF()
++ ", " + "g="+getG()
++ ", " + "h="+getH()
++ ", " + "i="+getI()
++ ", " + "j="+getJ() + "]";
+}
+}

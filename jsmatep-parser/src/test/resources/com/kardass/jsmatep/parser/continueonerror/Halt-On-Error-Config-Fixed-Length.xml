@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ns0:jSmaTeP-Parser-Config  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns:ns0='http://jsmatep.kardass.com/schema/jSmaTeP-Parser-Config'
+   xsi:schemaLocation='http://jsmatep.kardass.com/schema/jSmaTeP-Parser-Config jSmaTeP-Parser-Config.xsd' version="1.1.0">
+
+    <ns0:type>
+        <ns0:fixed-length record-length="13"></ns0:fixed-length>
+    </ns0:type>
+    <ns0:value-object>com.kardass.jsmatep.parser.continueonerror.ContinueOnErrorTestValueObject</ns0:value-object>
+    <!--  ns0:continue-on-record-error>false</ns0:continue-on-record-error -->
+    <ns0:fields>
+        <ns0:field name="a" position="0" length="2" type="String"></ns0:field>
+        <ns0:field name="b" position="2" length="8" type="Date" format="yyyyMMdd"></ns0:field>
+        <ns0:field name="c" position="10" length="3" type="Integer"></ns0:field>
+    </ns0:fields>
+</ns0:jSmaTeP-Parser-Config>

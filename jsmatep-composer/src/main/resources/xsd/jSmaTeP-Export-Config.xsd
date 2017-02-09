@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://jsmatep.kardass.de/schema/jSmaTeP-Export-Config"
+    xmlns:tns="http://jsmatep.kardass.de/schema/jSmaTeP-Export-Config"
+    elementFormDefault="qualified">
+    <xsd:simpleType name="supported-field-type">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="BigDecimal"/>
+            <xsd:enumeration value="char"/>
+            <xsd:enumeration value="Character"/>
+            <xsd:enumeration value="Date"/>
+            <xsd:enumeration value="Decimal"/>
+            <xsd:enumeration value="double"/>
+            <xsd:enumeration value="Double"/>
+            <xsd:enumeration value="float"/>
+            <xsd:enumeration value="Float"/>
+            <xsd:enumeration value="int"/>
+            <xsd:enumeration value="Integer"/>
+            <xsd:enumeration value="long"/>
+            <xsd:enumeration value="Long"/>
+            <xsd:enumeration value="string"/>
+            <xsd:enumeration value="String"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="field-type">
+        <xsd:sequence/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="position" type="xsd:int" use="required"/>
+        <xsd:attribute name="length" type="xsd:int" use="optional"/>
+        <xsd:attribute name="type" type="tns:supported-field-type" use="required"/>
+        <xsd:attribute name="format" type="xsd:string" use="optional"/>
+        <xsd:attribute name="show-decimal-separator" type="xsd:boolean" use="optional" default="true"/>
+        <xsd:attribute name="fill-left" type="xsd:string" use="optional"/>
+        <xsd:attribute name="fill-right" type="xsd:string" use="optional"/>
+    </xsd:complexType>
+    <xsd:complexType name="fixed-length-type">
+        <xsd:attribute name="record-length" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="csv-type">
+        <xsd:attribute name="delimiter" type="xsd:string" use="required"/>
+        <xsd:attribute name="field-count" type="xsd:int" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="record-export-config-type">
+        <xsd:sequence>
+            <xsd:element name="type" nillable="false">
+                <xsd:complexType>
+                    <xsd:choice minOccurs="1" maxOccurs="1">
+                        <xsd:element name="fixed-length" type="tns:fixed-length-type"/>
+                        <xsd:element name="csv" type="tns:csv-type"/>
+                    </xsd:choice>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="value-object" type="xsd:string" nillable="false"></xsd:element>
+            <!-- xsd:element name="record-length" type="xsd:int" nillable="false"></xsd:element -->
+            <xsd:element name="fields" nillable="false">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="field" type="tns:field-type" maxOccurs="unbounded"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="version" type="xsd:string" use="optional" default="0.1"/>
+    </xsd:complexType>
+    <xsd:element name="jSmaTeP-Export-Config" type="tns:record-export-config-type"></xsd:element>
+</xsd:schema>
+
